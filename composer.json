@@ -1,0 +1,31 @@
+{
+    "name": "creode/laravel-nova-faqs",
+    "description": "FAQs package for Laravel Nova",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.3|^8.0",
+        "pawelmysior/laravel-publishable": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Creode\\LaravelNovaFaqs\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Creode\\LaravelNovaFaqs\\LaravelNovaFaqsServiceProvider",
+                "Creode\\LaravelNovaFaqs\\ToolServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
