@@ -16,6 +16,6 @@ class FAQsController extends Controller
     public function index()
     {
         $faqs = Faq::published()->get();
-        return view('faqs::index', compact('faqs'));
+        return view('nova-faqs::index', compact('faqs'));
     }
 }

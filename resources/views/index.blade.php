@@ -1,4 +1,4 @@
-@extends('faqs::layouts.master')
+@extends('nova-faqs::layouts.master')
 
 @section('content')
 
