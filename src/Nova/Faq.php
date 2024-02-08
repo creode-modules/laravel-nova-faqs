@@ -2,12 +2,12 @@
 
 namespace Creode\LaravelNovaFaqs\Nova;
 
-use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Creode\NovaPublishable\Published;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Resource;
 
 class Faq extends Resource
 {
@@ -48,11 +48,7 @@ class Faq extends Resource
             ID::make()->sortable(),
             Text::make('Question'),
             Textarea::make('Answer'),
-            Boolean::make('Published', 'published_at', function () {
-                return $this->isPublished();
-            })
-            ->trueValue(now())
-            ->falseValue(null),
+            Published::make('Published', 'published_at'),
         ];
     }
 
