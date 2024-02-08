@@ -24,7 +24,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Creode\\LaravelNovaFaqs\\": "src/"
+            "Creode\\LaravelNovaFaqs\\": "src/",
+            "Creode\\LaravelNovaFaqs\\Database\\Factories\\": "database/factories/",
+            "Creode\\LaravelNovaFaqs\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "extra": {
