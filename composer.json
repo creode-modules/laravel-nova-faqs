@@ -6,20 +6,33 @@
         "nova"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "require": {
         "php": "^7.3|^8.0",
-        "pawelmysior/laravel-publishable": "^3.0"
+        "creode/nova-publishable": "^1.1",
+        "creode/laravel-repository": "^1.0",
+        "laravel/nova": "^4.0",
+        "spatie/laravel-package-tools": "^1.14.0"
+    },
+    "require-dev": {
+        "orchestra/canvas": "*"
     },
     "autoload": {
         "psr-4": {
-            "Creode\\LaravelNovaFaqs\\": "src/"
+            "Creode\\LaravelNovaFaqs\\": "src/",
+            "Creode\\LaravelNovaFaqs\\Database\\Factories\\": "database/factories/",
+            "Creode\\LaravelNovaFaqs\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Creode\\LaravelNovaFaqs\\LaravelNovaFaqsServiceProvider",
-                "Creode\\LaravelNovaFaqs\\ToolServiceProvider"
+                "Creode\\LaravelNovaFaqs\\LaravelNovaFaqsServiceProvider"
             ]
         }
     },

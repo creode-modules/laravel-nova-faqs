@@ -2,12 +2,14 @@
 
 namespace Creode\LaravelNovaFaqs\Nova;
 
-use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Creode\NovaPublishable\Published;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Resource;
+use Creode\NovaPublishable\Nova\PublishAction;
+use Creode\NovaPublishable\Nova\UnpublishAction;
 
 class Faq extends Resource
 {
@@ -37,6 +39,14 @@ class Faq extends Resource
     public static $group = 'FAQs';
 
     /**
+     * Get the displayable label of the resource.
+     */
+    public static function label()
+    {
+        return 'FAQs';
+    }
+
+    /**
      * Get the fields displayed by the resource.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
@@ -48,11 +58,7 @@ class Faq extends Resource
             ID::make()->sortable(),
             Text::make('Question'),
             Textarea::make('Answer'),
-            Boolean::make('Published', 'published_at', function () {
-                return $this->isPublished();
-            })
-            ->trueValue(now())
-            ->falseValue(null),
+            Published::make('Published', 'published_at'),
         ];
     }
 
@@ -97,11 +103,16 @@ class Faq extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [];
-    }
+        return [
+            (new PublishAction)
+                ->confirmText('Are you sure you want to publish these items?')
+                ->confirmButtonText('Publish')
+                ->cancelButtonText("Don't Publish"),
 
-    public static function label()
-    {
-        return 'FAQs';
+            (new UnpublishAction)
+                ->confirmText('Are you sure you want to unpublish these items?')
+                ->confirmButtonText('Unpublish')
+                ->cancelButtonText("Don't Unpublish"),
+        ];
     }
 }

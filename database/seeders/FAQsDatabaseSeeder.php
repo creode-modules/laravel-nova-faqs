@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\FAQs\Database\Seeders;
+namespace Creode\LaravelNovaFaqs\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +16,6 @@ class FAQsDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call("OthersTableSeeder");
+        \Creode\LaravelNovaFaqs\Entities\Faq::factory(30)->create();
     }
 }
