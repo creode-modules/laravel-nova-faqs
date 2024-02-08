@@ -9,7 +9,9 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LaravelNovaFaqsServiceProvider extends PackageServiceProvider
 {
-
+    /**
+     * Bootstrap any package services.
+     */
     public function boot()
     {
         parent::boot();
@@ -17,6 +19,9 @@ class LaravelNovaFaqsServiceProvider extends PackageServiceProvider
         $this->registerResources();
     }
 
+    /**
+     * Register Nova Resources.
+     */
     public function registerResources()
     {
         Faq::$model = config('nova-faqs.faqs_model', \Creode\LaravelNovaFaqs\Entities\Faq::class);
@@ -25,6 +30,9 @@ class LaravelNovaFaqsServiceProvider extends PackageServiceProvider
         ]);
     }
 
+    /**
+     * Sets up the package.
+     */
     public function configurePackage(Package $package): void
     {
         $package
