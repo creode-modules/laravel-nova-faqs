@@ -28,7 +28,6 @@ class LaravelNovaFaqsServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-nova-faqs')
             ->hasViews()
-            ->hasRoutes('web')
             ->hasMigrations(
                 [
                     '2023_08_16_150518_create_faqs_table',
