@@ -2,12 +2,16 @@
 
 namespace Creode\LaravelNovaFaqs\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Routing\Controller;
-use Creode\LaravelNovaFaqs\Entities\Faq;
+use Illuminate\Contracts\Support\Renderable;
+use Creode\LaravelNovaFaqs\Repositories\FaqRepository;
 
 class FAQsController extends Controller
 {
+    public function __construct(protected FaqRepository $faqRepository)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,9 @@ class FAQsController extends Controller
      */
     public function index()
     {
-        $faqs = Faq::published()->get();
+        $faqs = $this->faqRepository
+            ->published()
+            ->get();
         return view('nova-faqs::index', compact('faqs'));
     }
 }
