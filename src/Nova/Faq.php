@@ -112,7 +112,7 @@ class Faq extends Resource
             (new UnpublishAction)
                 ->confirmText('Are you sure you want to unpublish these items?')
                 ->confirmButtonText('Unpublish')
-                ->cancelButtonText("Don't Unpublish")
+                ->cancelButtonText("Don't Unpublish"),
         ];
     }
 }
