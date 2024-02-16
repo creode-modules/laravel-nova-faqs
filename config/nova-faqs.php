@@ -21,5 +21,6 @@ return [
     | and updating a resource.
     |
     */
+
     'trafficCop' => true,
-    ];
+];
