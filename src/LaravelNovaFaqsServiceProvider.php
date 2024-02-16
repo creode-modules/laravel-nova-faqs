@@ -25,6 +25,7 @@ class LaravelNovaFaqsServiceProvider extends PackageServiceProvider
     public function registerResources()
     {
         Faq::$model = config('nova-faqs.faqs_model', \Creode\LaravelNovaFaqs\Entities\Faq::class);
+        Faq::$trafficCop = config('nova-faqs.traffic_cop');
         Nova::resources([
             Faq::class,
         ]);
