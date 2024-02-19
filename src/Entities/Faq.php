@@ -2,13 +2,20 @@
 
 namespace Creode\LaravelNovaFaqs\Entities;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\EloquentSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use PawelMysior\Publishable\Publishable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\EloquentSortable\SortableTrait;
 
-class Faq extends Model
+class Faq extends Model implements Sortable
 {
-    use Publishable, HasFactory;
+    use Publishable, HasFactory, SortableTrait;
+
+    public $sortable = [
+        'order_column_name' => 'sort_order',
+        'sort_when_creating' => true,
+    ];
 
     protected $fillable = [];
 
