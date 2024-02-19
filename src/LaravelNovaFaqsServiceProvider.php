@@ -44,6 +44,7 @@ class LaravelNovaFaqsServiceProvider extends PackageServiceProvider
                 [
                     '2023_08_16_150518_create_faqs_table',
                     '2023_08_17_135221_add_published_at_field_to_faqs_table',
+                    '2024_02_19_105836_add_sort_order_column',
                 ]
             )
             ->runsMigrations();

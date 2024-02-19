@@ -10,9 +10,12 @@ use Creode\NovaPublishable\Published;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Creode\NovaPublishable\Nova\PublishAction;
 use Creode\NovaPublishable\Nova\UnpublishAction;
+use Outl1ne\NovaSortable\Traits\HasSortableRows;
 
 class Faq extends Resource
 {
+    use HasSortableRows;
+
     /**
      * The model the resource corresponds to.
      *
