@@ -23,4 +23,27 @@ return [
     */
 
     'trafficCop' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Allowed WYSIWYG Buttons
+    |--------------------------------------------------------------------------
+    |
+    | The model which will be used to handle FAQs.
+    |
+    */
+
+    'allowed_wysiwyg_buttons' => [
+        'bold',
+        'italic',
+        '|',
+        'link',
+        'strike',
+        'underline',
+        'highlight',
+        '|',
+        'bulletList',
+        'orderedList',
+        'blockquote',
+    ],
 ];

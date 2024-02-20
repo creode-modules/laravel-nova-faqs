@@ -2,10 +2,10 @@
 
 namespace Creode\LaravelNovaFaqs\Nova;
 
+use Manogi\Tiptap\Tiptap;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use Creode\NovaPublishable\Published;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Creode\NovaPublishable\Nova\PublishAction;
@@ -60,7 +60,28 @@ class Faq extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Question'),
-            Textarea::make('Answer'),
+            Tiptap::make('Answer')
+                ->buttons(
+                    config(
+                        'nova-faqs.allowed_wysiwyg_buttons',
+                        [
+                            'bold',
+                            'italic',
+                            '|',
+                            'link',
+                            'strike',
+                            'underline',
+                            'highlight',
+                            '|',
+                            'bulletList',
+                            'orderedList',
+                            'blockquote',
+                        ]
+                    )
+                )
+                ->linkSettings([
+                    'withFileUpload' => false,
+                ]),
             Published::make('Published', 'published_at'),
         ];
     }

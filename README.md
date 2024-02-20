@@ -54,3 +54,12 @@ You can seed FAQs using the EventFactory:
 ```bash
 php artisan db:seed --class="Creode\LaravelNovaFaqs\Database\Seeders\FAQsDatabaseSeeder"
 ```
+
+## Dependencies
+This package depends on the following packages:
+
+- [TipTap](https://github.com/manogi/nova-tiptap) - For rendering WYSIWYG content.
+- [Laravel Repository](https://github.com/creode-modules/laravel-repository/) - For allowing a repository pattern to be used for querying the database.
+- [Nova Sortable](https://github.com/outl1ne/nova-sortable) - For allowing items to be sorted.
+- [Nova Publishable](https://github.com/creode-modules/nova-publishable) - For allowing items to be published or unpublished.
+- [Laravel Nova](https://nova.laravel.com/) - For the admin interface.
