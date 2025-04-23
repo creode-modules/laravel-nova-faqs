@@ -2,7 +2,7 @@
 
 namespace Creode\LaravelNovaFaqs\Nova;
 
-use Manogi\Tiptap\Tiptap;
+use Marshmallow\Tiptap\Tiptap;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
